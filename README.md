@@ -1,7 +1,14 @@
 # poutyne-transformers
+
 Train 🤗-transformers models with [Poutyne](https://poutyne.org).
 
-Example:
+## Installation
+
+```bash
+pip install poutyne-transformers
+```
+
+## Example
 
 ```python
 import torch
