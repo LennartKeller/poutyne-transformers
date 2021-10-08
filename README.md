@@ -1,2 +1,2 @@
 # poutyne-transformers
-Train 🤗-transformers model with Poutyne.
+Train 🤗-transformers models with [Poutyne](https://poutyne.org).
