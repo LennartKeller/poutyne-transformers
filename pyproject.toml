@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "poutyne-transformers"
+version = "0.1.0"
+description = "Train 🤗-transformers models with Poutyne."
+authors = ["Lennart Keller <lennart.keller@googlemail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+torch = "1.9.0"
+Poutyne = "^1.6"
+transformers = "^4.11.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
