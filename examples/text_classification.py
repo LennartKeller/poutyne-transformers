@@ -1,9 +1,3 @@
-# poutyne-transformers
-Train 🤗-transformers models with [Poutyne](https://poutyne.org).
-
-Example:
-
-```python
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 from datasets import load_dataset
@@ -34,5 +28,3 @@ model = Model(wrapped_transformer, optimizer, loss_function=model_loss, device=d
 
 print('Starting training.')
 model.fit_generator(train_dataloader, test_dataloader, epochs=1)
-
-```
