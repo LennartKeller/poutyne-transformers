@@ -71,7 +71,7 @@ from transformers import AutoModel
 from poutyne import Lambda
 from poutyne_transformers import ModelWrapper
 
-#...
+...
 
 transformer = AutoModel.from_pretrained(
     "distilbert-base-cased", output_hidden_states=True
@@ -85,5 +85,5 @@ custom_model = nn.Sequential(
     Lambda(lambda out: out.reshape(-1)),
 )
 
-#...
+...
 ```
