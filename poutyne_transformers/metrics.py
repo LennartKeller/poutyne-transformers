@@ -1,5 +1,6 @@
 from typing import Any, Callable, Dict
-#from poutyne.framework.metrics import get_names_of_metric
+
+# from poutyne.framework.metrics import get_names_of_metric
 
 
 class MetricWrapper:
@@ -10,7 +11,7 @@ class MetricWrapper:
         self._set_metric_name(metric)
 
     def _set_metric_name(self, metric):
-        #metric, name = get_names_of_metric(metric)
+        # metric, name = get_names_of_metric(metric)
         self.__name__ = metric.__name__
 
     def __call__(self, outputs: Dict[str, Any], y_true: Any):
