@@ -3,6 +3,8 @@ name = "poutyne-transformers"
 version = "0.1.0.2"
 description = "Train 🤗-transformers models with Poutyne."
 authors = ["Lennart Keller <lennart.keller@googlemail.com>"]
+readme = "README.md"
+repository = "https://github.com/LennartKeller/poutyne-transformers"
 
 [tool.poetry.dependencies]
 python = "^3.9"
