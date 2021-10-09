@@ -26,6 +26,7 @@ dataset = dataset.map(
     batched=True,
 )
 dataset = dataset.remove_columns(["text"])
+dataset = dataset.shuffle()
 dataset.set_format("torch")
 
 collate_fn = TransformerCollator(y_keys="labels")

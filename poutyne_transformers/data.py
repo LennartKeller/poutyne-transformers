@@ -9,7 +9,7 @@ class TransformerCollator:
         self,
         y_keys: Union[str, List[str]] = None,
         custom_collator: Callable = None,
-        remove_labels: bool = True,
+        remove_labels: bool = False,
     ):
         self.y_keys = y_keys
         self.custom_collator = (
@@ -31,5 +31,4 @@ class TransformerCollator:
             }
         else:
             y = batch.pop(self.y_keys) if self.remove_labels else batch.get(self.y_keys)
-
         return batch, y
