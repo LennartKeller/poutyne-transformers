@@ -1,6 +1,6 @@
 # poutyne-transformers
 
-Train 🤗-transformers models with [Poutyne](https://poutyne.org).
+Train [🤗-transformers](https://huggingface.co/transformers/) models with [Poutyne](https://poutyne.org).
 
 ## Installation
 
