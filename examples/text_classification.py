@@ -11,32 +11,32 @@ from poutyne_transformers import (
     MetricWrapper,
 )
 
-print('Loading model & tokenizer.')
+print("Loading model & tokenizer.")
 transformer = AutoModelForSequenceClassification.from_pretrained(
-    'distilbert-base-cased', num_labels=2, return_dict=True
+    "distilbert-base-cased", num_labels=2, return_dict=True
 )
-tokenizer = AutoTokenizer.from_pretrained('distilbert-base-cased')
+tokenizer = AutoTokenizer.from_pretrained("distilbert-base-cased")
 
-print('Loading & preparing dataset.')
-dataset = load_dataset('imdb')
+print("Loading & preparing dataset.")
+dataset = load_dataset("imdb")
 dataset = dataset.map(
     lambda entry: tokenizer(
-        entry['text'], add_special_tokens=True, padding='max_length', truncation=True
+        entry["text"], add_special_tokens=True, padding="max_length", truncation=True
     ),
     batched=True,
 )
-dataset = dataset.remove_columns(['text'])
-dataset.set_format('torch')
+dataset = dataset.remove_columns(["text"])
+dataset.set_format("torch")
 
-collate_fn = TransformerCollator(y_keys='labels')
-train_dataloader = DataLoader(dataset['train'], batch_size=16, collate_fn=collate_fn)
-test_dataloader = DataLoader(dataset['test'], batch_size=16, collate_fn=collate_fn)
+collate_fn = TransformerCollator(y_keys="labels")
+train_dataloader = DataLoader(dataset["train"], batch_size=16, collate_fn=collate_fn)
+test_dataloader = DataLoader(dataset["test"], batch_size=16, collate_fn=collate_fn)
 
-print('Preparing training.')
+print("Preparing training.")
 wrapped_transformer = ModelWrapper(transformer)
 optimizer = optim.AdamW(wrapped_transformer.parameters(), lr=5e-5)
-device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-accuracy = MetricWrapper(Accuracy(), pred_key='logits')
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+accuracy = MetricWrapper(Accuracy(), pred_key="logits")
 model = Model(
     wrapped_transformer,
     optimizer,
@@ -45,5 +45,5 @@ model = Model(
     device=device,
 )
 
-print('Starting training.')
+print("Starting training.")
 model.fit_generator(train_dataloader, test_dataloader, epochs=1)
