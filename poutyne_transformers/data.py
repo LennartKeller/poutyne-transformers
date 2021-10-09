@@ -30,6 +30,6 @@ class TransformerCollator:
                 for key in self.y_keys
             }
         else:
-            y = batch.get(self.y_keys)
+            y = batch.pop(self.y_keys) if self.remove_labels else batch.get(self.y_keys)
 
         return batch, y
