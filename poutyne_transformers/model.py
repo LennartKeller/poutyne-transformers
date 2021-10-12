@@ -15,4 +15,4 @@ class ModelWrapper(nn.Module):
         return self.transformer(**inputs)
 
     def save_pretrained(self, *args, **kwargs) -> None:
-        self.transformer.save_pretrained()
+        self.transformer.save_pretrained(*args, **kwargs)
