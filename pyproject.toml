@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "poutyne-transformers"
-version = "0.1.0.3"
+version = "0.1.0.4"
 description = "Train 🤗-transformers models with Poutyne."
 authors = ["Lennart Keller <lennart.keller@googlemail.com>"]
 readme = "README.md"
